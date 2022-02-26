@@ -1,18 +1,19 @@
 class Track < ApplicationRecord
-  # N.B. Remember, Rails 5 automatically validates the presence of
-  # belongs_to associations, so we can leave the validation of albums
-  # out here.
+  
   validates :lyrics, :name, :ord, presence: true
   # can't use presence validation with boolean field
   validates :bonus, inclusion: { in: [true, false] }
   validates :ord, uniqueness: { scope: :album_id }
 
+  # Each track will belong to one album
   belongs_to :album
 
+  #Each track will belong to only one band
   has_one :band,
     through: :album,
     source: :band
 
+  # Each user may provide many notes per track
   has_many :notes,
     dependent: :destroy
 
