@@ -5,20 +5,21 @@ Track.destroy_all
 Note.destroy_all
 
 # User
-fred = User.create!(email: 'fred@metal.com', password: 'starwars')
-daniel = User.create!(email: 'daniel@classical.com', password: 'starwars')
+serge = User.create!(email: 'serge@hiphop.com', password: 'loveanime')
+raimi = User.create!(email: 'raimi@classical.com', password: 'hawaii')
 
 # Band
-little_as = Band.create!(name: 'the little \'a\'s')
-big_as = Band.create!(name: 'THE BIG \'A\'s')
+ewf = Band.create!(name: 'Earth Wind \& Fire')
+b2m = Band.create!(name: 'Boyz II Men')
 
 # Album
-gonna  = Album.create!(name: 'Gonna be a big A someday!', band: little_as, year: 2017)
+september  = Album.create!(name: 'September', band: ewf, year: 1978)
+cooley  = Album.create!(name: 'Cooleyhighharmony', band: b2m, year: 1991)
 
 # Track
-track1 = gonna.tracks.create!(name: 'Why would I make my own bracket method?', ord: 1, lyrics: 'lalalalala')
-track2 = gonna.tracks.create!(name: 'I am riding the rails of majesty', ord: 2, lyrics: 'rails rails rrrrails')
+track1 = september.tracks.create!(name: 'Can\'t Let Go', ord: 1, lyrics: 'I love you so')
+track2 = cooley.tracks.create!(name: 'End of the Road', ord: 2, lyrics: 'Although we fall')
 
 # Note
-note1 = track1.notes.create!(user: fred, content: 'It\'s better that way')
-note2 = track1.notes.create!(user: daniel, content: 'Can you add some spacing here?')
+note1 = track1.notes.create!(user: serge, content: 'It\'s better that way')
+note2 = track1.notes.create!(user: raimi, content: 'Can you add some spacing here?')

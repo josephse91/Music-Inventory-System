@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :current_user_id, :logged_in?
 
+  # The following methods will be provided in order to regulate the session and which user is in session
   def current_user
     return nil unless session[:session_token]
     @current_user ||= User.find_by(session_token: session[:session_token])

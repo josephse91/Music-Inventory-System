@@ -12,19 +12,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      # Uncomment these lines to enable the email activation flow
-      #-------------------------------------------------------------------------
-      #ApplicationMailer.activation_email(@user).deliver_now!
-      #flash[:notice] = 'Successfully created your account! Check your inbox for an activation email.'
-      #redirect_to new_session_url
-      #-------------------------------------------------------------------------
-
-      # And remove these lines
-      #---------------------
+      
       @user.activate!
       login_user!(@user)
       redirect_to root_url
-      #---------------------
+      
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
