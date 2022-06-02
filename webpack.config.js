@@ -9,6 +9,13 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", "*"],
+    fallback: {
+      dgram: false,
+      fs: false,
+      net: false,
+      tls: false,
+      child_process: false,
+    },
   },
   module: {
     rules: [
@@ -17,9 +24,6 @@ module.exports = {
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
-          // query: {
-          //   presets: ["@babel/env", "@babel/react"],
-          // },
         },
       },
     ],
