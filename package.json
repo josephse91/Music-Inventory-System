@@ -3,5 +3,8 @@
   "private": true,
   "scripts": {
     "heroku-prebuild": "npm install --dev"
+  },
+  "dependencies": {
+    "@rails/webpacker": "^5.4.3"
   }
 }
