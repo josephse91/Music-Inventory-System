@@ -26,7 +26,7 @@ default: &default
 development:
   <<: *default
   database: music_app_development
-  port: 5433
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -56,7 +56,7 @@ development:
 test:
   <<: *default
   database: music_app_test
-  port: 5433
+  port: 5432
   pool: 5
   timeout: 5000
 
